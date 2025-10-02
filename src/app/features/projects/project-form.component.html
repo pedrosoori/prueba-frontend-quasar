@@ -1,0 +1,15 @@
+<a routerLink="/projects">← Volver</a>
+<div class="card grid" style="gap:.8rem">
+    <h2>{{ id ? 'Editar proyecto' : 'Nuevo proyecto' }}</h2>
+    <label>Nombre<input class="input" [(ngModel)]="model.name" required></label>
+    <label>Descripción<textarea class="input" [(ngModel)]="model.description"></textarea></label>
+    <div class="grid grid-2">
+        <label>Inicio<input class="input" type="date" [(ngModel)]="model.startDate"></label>
+        <label>Fin estimado<input class="input" type="date" [(ngModel)]="model.endDate"></label>
+    </div>
+    <div class="flex" style="gap:.5rem">
+        <button *ngIf="id" class="danger" (click)="remove()">Eliminar</button>
+        <button class="primary" (click)="save()">Guardar</button>
+        <a routerLink="/projects"><button class="ghost">Cancelar</button></a>
+    </div>
+</div>

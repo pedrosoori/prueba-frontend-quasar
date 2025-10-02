@@ -1,0 +1,11 @@
+<div class="container" style="max-width:420px; margin-top:10vh;">
+    <div class="card">
+        <h2>Iniciar sesión</h2>
+        <form (ngSubmit)="submit()" class="grid" style="gap:.8rem" #f="ngForm">
+            <input class="input" name="u" [(ngModel)]="username" placeholder="Usuario" required>
+            <input class="input" name="p" [(ngModel)]="password" type="password" placeholder="Contraseña" required>
+            <button class="primary" type="submit">Entrar</button>
+            <div *ngIf="error" style="color:#fca5a5">{{ error }}</div>
+        </form>
+    </div>
+</div>

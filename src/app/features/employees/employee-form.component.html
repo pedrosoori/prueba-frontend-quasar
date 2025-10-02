@@ -1,0 +1,11 @@
+<a routerLink="/employees">← Volver</a>
+<div class="card grid" style="gap:.8rem">
+    <h2>{{ id ? 'Editar empleado' : 'Nuevo empleado' }}</h2>
+    <label>Nombre<input class="input" [(ngModel)]="model.fullName" required></label>
+    <label>Email<input class="input" [(ngModel)]="model.email" required></label>
+    <label>Rol<input class="input" [(ngModel)]="model.role" required></label>
+    <div class="flex" style="gap:.5rem">
+        <button class="primary" (click)="save()">Guardar</button>
+        <a routerLink="/employees"><button class="ghost">Cancelar</button></a>
+    </div>
+</div>

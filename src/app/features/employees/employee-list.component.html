@@ -1,0 +1,24 @@
+<div class="flex space-between">
+    <h2>Empleados</h2>
+    <a routerLink="/employees/new"><button class="primary">Nuevo empleado</button></a>
+</div>
+
+<table class="table card">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Rol</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of rows()">
+            <td>{{ e.fullName }}</td>
+            <td>{{ e.email }}</td>
+            <td>{{ e.role }}</td>
+            <td><a [routerLink]="['/employees', e.id]">Ver</a></td>
+        </tr>
+    </tbody>
+</table>
+<p *ngIf="rows().length === 0">No hay empleados aún.</p>

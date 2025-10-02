@@ -1,0 +1,26 @@
+<a routerLink="/employees">← Volver</a>
+<div class="card" *ngIf="emp as e">
+    <div class="flex space-between">
+        <h2>{{ e.fullName }}</h2>
+        <a routerLink="/employees"><button class="danger" (click)="remove()">Eliminar</button></a>
+    </div>
+    <p>{{ e.email }} · {{ e.role }}</p>
+    <div class="grid grid-2">
+        <div>
+            <h3>Proyectos</h3>
+            <ul>
+                <li *ngFor="let pId of (e.projectIds || [])">
+                    {{ projects.getById(pId)?.name || '—' }}
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h3>Tareas</h3>
+            <ul>
+                <li *ngFor="let tId of (e.taskIds || [])">
+                    {{ tasks.getById(tId)?.title || '—' }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

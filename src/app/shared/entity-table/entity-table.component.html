@@ -1,0 +1,16 @@
+<table class="table card">
+    <thead>
+        <tr>
+            <th *ngFor="let col of columns">{{ col.label }}</th>
+            <th *ngIf="actionsTemplate">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of data">
+            <td *ngFor="let col of columns">{{ row[col.key] }}</td>
+            <td *ngIf="actionsTemplate">
+                <ng-container *ngTemplateOutlet="actionsTemplate; context: {$implicit: row}"></ng-container>
+            </td>
+        </tr>
+    </tbody>
+</table>

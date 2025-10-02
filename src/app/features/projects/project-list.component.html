@@ -1,0 +1,39 @@
+<div class="flex space-between">
+    <h2>Proyectos</h2>
+    <a routerLink="/projects/new"><button class="primary">Nuevo proyecto</button></a>
+</div>
+
+
+<!-- <app-entity-table [columns]="[
+{ key: 'name', label: 'Nombre' },
+{ key: 'description', label: 'Descripción' },
+{ key: 'startDate', label: 'Inicio' },
+{ key: 'endDate', label: 'Fin estimado' }
+]" [data]="rows()">
+</app-entity-table> -->
+
+<table class="table card">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Inicio</th>
+            <th>Fin estimado</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let t of rows()">
+            <td>{{ t.name }}</td>
+            <td>{{ t.description }}</td>
+            <td>{{ t.startDate | date:'shortDate' }}</td>
+            <td>{{ t.endDate ? (t.endDate | date:'shortDate') : '—' }}</td>
+            <td>
+                <a [routerLink]="['/projects', t.id, 'edit']">Editar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<p *ngIf="rows().length === 0">No hay proyectos aún.</p>

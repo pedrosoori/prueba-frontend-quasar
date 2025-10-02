@@ -1,0 +1,25 @@
+<a routerLink="/projects">← Volver</a>
+<div class="card" *ngIf="project as p">
+    <div class="flex space-between">
+        <h2>{{ p.name }}</h2>
+        <a [routerLink]="['/projects', p.id, 'edit']"><button class="ghost">Editar</button></a>
+    </div>
+    <p>{{ p.description }}</p>
+    <div class="grid grid-2">
+        <div>
+            <h3>Fechas</h3>
+            <p>Inicio: {{ p.startDate || '—' }}</p>
+            <p>Fin estimado: {{ p.endDate || '—' }}</p>
+        </div>
+        <div>
+            <h3>Empleados asignados</h3>
+            <ul>
+                <li *ngFor="let eId of p.employeeIds">{{ (employees.getById(eId)?.fullName) || eId }}</li>
+            </ul>
+        </div>
+    </div>
+    <h3>Tareas</h3>
+    <ul>
+        <li *ngFor="let tId of p.taskIds">{{ (tasks.getById(tId)?.title) || tId }}</li>
+    </ul>
+</div>

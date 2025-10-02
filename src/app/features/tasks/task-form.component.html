@@ -1,0 +1,31 @@
+<a routerLink="/tasks">← Volver</a>
+<div class="card grid" style="gap:.8rem">
+    <h2>{{ id ? 'Editar tarea' : 'Nueva tarea' }}</h2>
+    <label>Título<input class="input" [(ngModel)]="model.title" required></label>
+    <label>Descripción<textarea class="input" [(ngModel)]="model.description"></textarea></label>
+    <label>Estado
+        <select class="input" [(ngModel)]="model.status">
+            <option>Pendiente</option>
+            <option>En progreso</option>
+            <option>Completada</option>
+        </select>
+    </label>
+    <label>Fecha límite<input class="input" type="date" [(ngModel)]="model.dueDate"></label>
+    <label>Proyecto
+        <select class="input" [(ngModel)]="model.projectId">
+            <option [ngValue]="''">—</option>
+            <option *ngFor="let p of projects.items()" [ngValue]="p.id">{{ p.name }}</option>
+        </select>
+    </label>
+    <label>Empleado
+        <select class="input" [(ngModel)]="model.employeeId">
+            <option [ngValue]="''">—</option>
+            <option *ngFor="let e of employees.items()" [ngValue]="e.id">{{ e.fullName }}</option>
+        </select>
+    </label>
+    <div class="flex" style="gap:.5rem">
+        <button *ngIf="id" class="danger" (click)="remove()">Eliminar</button>
+        <button class="primary" (click)="save()">Guardar</button>
+        <a routerLink="/tasks"><button class="ghost">Cancelar</button></a>
+    </div>
+</div>

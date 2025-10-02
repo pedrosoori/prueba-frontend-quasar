@@ -1,0 +1,11 @@
+<nav class="card flex space-between">
+    <div class="flex" style="gap:.8rem">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Dashboard</a>
+        <a routerLink="/projects" routerLinkActive="active">Proyectos</a>
+        <a routerLink="/tasks" routerLinkActive="active">Tareas</a>
+        <a routerLink="/employees" routerLinkActive="active">Empleados</a>
+    </div>
+    <div>
+        <button class="ghost" (click)="auth.logout()">Salir</button>
+    </div>
+</nav>
