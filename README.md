@@ -1,10 +1,10 @@
-# Prueba Técnica – Angular 17
+# Prueba Técnica – Angular 20
 
 Aplicación SPA con autenticación simulada, CRUD de Proyectos, Tareas y Empleados, y persistencia mínima en `localStorage`.
 
 ## Requisitos
 - Node 20+
-- Angular CLI 17+ (`npm i -g @angular/cli`)
+- Angular CLI 20+ (`npm i -g @angular/cli`)
 
 ## Instalación
 ```bash
