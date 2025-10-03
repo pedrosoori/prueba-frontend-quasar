@@ -11,7 +11,7 @@
             <th>Estado</th>
             <th>Creación</th>
             <th>Fecha límite</th>
-            <th>Proyecto</th>
+            <!-- <th>Proyecto</th> -->
             <th>Empleado</th>
             <th></th>
         </tr>
@@ -23,7 +23,7 @@
             </td>
             <td>{{ t.createdAt | date:'shortDate' }}</td>
             <td>{{ t.dueDate ? (t.dueDate | date:'shortDate') : '—' }}</td>
-            <td>{{ t.projectId ? (projects.getById(t.projectId)?.name || '—') : '—' }}</td>
+            <!-- <td>{{ t.projectId ? (projects.getById(t.projectId)?.name || '—') : '—' }}</td> -->
             <td>{{ t.employeeId ? (employees.getById(t.employeeId)?.fullName || '—') : '—' }}</td>
             <td>
                 <a [routerLink]="['/tasks', t.id, 'edit']">Editar</a>
